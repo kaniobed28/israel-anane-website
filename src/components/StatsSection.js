@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { FaStar, FaRunning, FaBullseye, FaDumbbell } from 'react-icons/fa';
 
-export default function StatsSection() {
+const StatsSection  = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: 'white' }}>
       <Container>
@@ -35,3 +35,4 @@ export default function StatsSection() {
     </Box>
   );
 }
+export default StatsSection;

@@ -1,10 +1,11 @@
+"use client";
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import StatsSection from '@/components/StatsSection';
 import PersonalBestsSection from '@/components/PersonalBestsSection';
 import Footer from '@/components/Footer';
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <div>
       <HeroSection />
@@ -13,4 +14,5 @@ export default function HomePage() {
       <Footer />
     </div>
   );
-}
+};
+export default  HomePage

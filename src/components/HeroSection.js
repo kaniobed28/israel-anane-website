@@ -16,7 +16,7 @@ const pulse = keyframes`
   100% { transform: scale(1); }
 `;
 
-export default function HeroSection() {
+const HeroSection  = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -158,3 +158,4 @@ export default function HeroSection() {
     </Box>
   );
 }
+export default HeroSection;

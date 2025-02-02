@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { FaClock, FaBullseye, FaDumbbell } from 'react-icons/fa';
 
-export default function PersonalBestsSection() {
+const PersonalBestsSection  = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: '#f5f5f5' }}>
       <Container>
@@ -30,3 +30,4 @@ export default function PersonalBestsSection() {
     </Box>
   );
 }
+export default PersonalBestsSection;

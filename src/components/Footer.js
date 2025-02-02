@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import { FaInstagram, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
-export default function Footer() {
+const Footer  = () => {
   const currentYear = new Date().getFullYear(); // Get the current year
 
   return (
@@ -108,3 +108,4 @@ export default function Footer() {
     </Box>
   );
 }
+export default Footer;
