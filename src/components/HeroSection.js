@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Typography, Button, Stack, Skeleton } from '@mui/material';
+import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import { FaInstagram, FaTwitter, FaEnvelope, FaArrowDown } from 'react-icons/fa';
 import { keyframes } from '@mui/system';
 
@@ -16,8 +16,7 @@ const pulse = keyframes`
   100% { transform: scale(1); }
 `;
 
-const HeroSection  = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+const HeroSection = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   // Handle scroll indicator visibility
@@ -42,21 +41,11 @@ const HeroSection  = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Progressive image loading */}
-      {!imageLoaded && (
-        <Skeleton
-          variant="rectangular"
-          width="100%"
-          height="100%"
-          animation="wave"
-        />
-      )}
+      {/* Image without lazy loading */}
       <Box
         component="img"
         src="/israel.jpg" 
         alt="Israel Anane Domeh in action"
-        loading="lazy"
-        onLoad={() => setImageLoaded(true)}
         sx={{
           position: 'absolute',
           top: 0,
@@ -67,7 +56,6 @@ const HeroSection  = () => {
           filter: 'brightness(0.7)',
           transition: 'transform 0.3s ease-out',
           transform: `scale(${isScrolling ? 1.05 : 1})`,
-          display: imageLoaded ? 'block' : 'none',
         }}
       />
 
@@ -130,8 +118,8 @@ const HeroSection  = () => {
                 '&:active': {
                   transform: 'translateY(0)',
                 },
-                width: 'auto', // Ensure buttons don't overflow in small screens
-                whiteSpace: 'nowrap', // Prevent text wrapping
+                width: 'auto',
+                whiteSpace: 'nowrap',
               }}
             >
               {platform}
@@ -141,21 +129,21 @@ const HeroSection  = () => {
 
         {/* Scroll indicator */}
         <Box
-  sx={{
-    position: 'absolute',
-    bottom: '10px', // Increased value to move the arrow lower
-    left: '50%',
-    transform: 'translateX(-50%)',
-    animation: `${pulse} 2s infinite`,
-    opacity: isScrolling ? 0 : 1,
-    transition: 'opacity 0.3s',
-  }}
->
-  <FaArrowDown size={24} />
-</Box>
-
+          sx={{
+            position: 'absolute',
+            bottom: '10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            animation: `${pulse} 2s infinite`,
+            opacity: isScrolling ? 0 : 1,
+            transition: 'opacity 0.3s',
+          }}
+        >
+          <FaArrowDown size={24} />
+        </Box>
       </Container>
     </Box>
   );
 }
+
 export default HeroSection;
