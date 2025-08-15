@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Typography, Button, Stack } from '@mui/material';
-import { FaInstagram, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { Box, Typography, Stack } from '@mui/material';
+import SocialButton from './SocialButton';
+import { socialLinks } from '../app/data';
 
-const Footer  = () => {
-  const currentYear = new Date().getFullYear(); // Get the current year
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
   return (
     <Box
@@ -32,78 +33,16 @@ const Footer  = () => {
         spacing={3}
         justifyContent="center"
         mt={3}
-        sx={{
-          '@media (max-width: 600px)': {
-            flexDirection: 'row', // Keep the icons in a row on mobile
-          },
-        }}
       >
-        <Button
-          variant="outlined"
-          color="inherit"
-          startIcon={<FaInstagram />}
-          sx={{
-            px: 3,
-            py: 1.5,
-            borderRadius: '30px',
-            border: '2px solid #E4405F',
-            color: '#E4405F',
-            '&:hover': {
-              backgroundColor: '#E4405F',
-              color: 'white',
-            },
-            // Hide the text label for small screens
-            '& .MuiButton-label': {
-              display: { xs: 'none', sm: 'inline' }, 
-            },
-          }}
-        >
-          Instagram
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="inherit"
-          startIcon={<FaTwitter />}
-          sx={{
-            px: 3,
-            py: 1.5,
-            borderRadius: '30px',
-            border: '2px solid #1DA1F2',
-            color: '#1DA1F2',
-            '&:hover': {
-              backgroundColor: '#1DA1F2',
-              color: 'white',
-            },
-            '& .MuiButton-label': {
-              display: { xs: 'none', sm: 'inline' }, 
-            },
-          }}
-        >
-          Twitter
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="inherit"
-          startIcon={<FaEnvelope />}
-          sx={{
-            px: 3,
-            py: 1.5,
-            borderRadius: '30px',
-            border: '2px solid #FF5C8D',
-            color: '#FF5C8D',
-            '&:hover': {
-              backgroundColor: '#FF5C8D',
-              color: 'white',
-            },
-            '& .MuiButton-label': {
-              display: { xs: 'none', sm: 'inline' }, 
-            },
-          }}
-        >
-          Contact
-        </Button>
+        {socialLinks.map((link) => (
+          <SocialButton
+            key={link.platform}
+            platform={link.platform}
+            icon={link.icon}
+            url={link.url}
+            color={link.color}
+          />
+        ))}
       </Stack>
     </Box>
   );

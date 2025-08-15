@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { FaStar, FaRunning, FaBullseye, FaDumbbell } from 'react-icons/fa';
+import StatCard from './StatCard';
+import { stats } from '../app/data';
 
-const StatsSection  = () => {
+const StatsSection = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: 'white' }}>
       <Container>
@@ -10,29 +11,18 @@ const StatsSection  = () => {
           Career Highlights
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} md={3} textAlign="center">
-            <FaStar sx={{ fontSize: 40, color: 'gold' }} />
-            <Typography variant="h4">4</Typography>
-            <Typography variant="h6">World Records</Typography>
-          </Grid>
-          <Grid item xs={12} md={3} textAlign="center">
-            <FaRunning sx={{ fontSize: 40, color: 'blue' }} />
-            <Typography variant="h4">10</Typography>
-            <Typography variant="h6">Years Pro</Typography>
-          </Grid>
-          <Grid item xs={12} md={3} textAlign="center">
-            <FaBullseye sx={{ fontSize: 40, color: 'green' }} />
-            <Typography variant="h4">8.45m</Typography>
-            <Typography variant="h6">Long Jump</Typography>
-          </Grid>
-          <Grid item xs={12} md={3} textAlign="center">
-            <FaDumbbell sx={{ fontSize: 40, color: 'red' }} />
-            <Typography variant="h4">21.50m</Typography>
-            <Typography variant="h6">Shot Put</Typography>
-          </Grid>
+          {stats.map((stat, index) => (
+            <StatCard
+              key={index}
+              icon={stat.icon}
+              value={stat.value}
+              label={stat.label}
+            />
+          ))}
         </Grid>
       </Container>
     </Box>
   );
-}
+};
+
 export default StatsSection;
