@@ -43,10 +43,10 @@ const HeroSection = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Image without lazy loading */}
+      {/* Background image */}
       <Box
         component="img"
-        src="/israel.jpg" 
+        src="/israel.jpg"
         alt="Israel Anane Domeh in action"
         sx={{
           position: 'absolute',
@@ -55,13 +55,22 @@ const HeroSection = () => {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          filter: 'brightness(0.7)',
           transition: 'transform 0.3s ease-out',
           transform: `scale(${isScrolling ? 1.05 : 1})`,
         }}
       />
-
-      <Container sx={{ 
+      {/* Overlay */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        }}
+      />
+      <Container sx={{
         position: 'relative',
         zIndex: 1,
         animation: `${fadeIn} 1s ease-out`,
@@ -76,10 +85,10 @@ const HeroSection = () => {
             mb: 2,
           }}
         >
-          <Box component="span" sx={{ color: 'secondary.main' }}>Israel</Box> Anane Domeh
+          <Box component="span" sx={{ color: 'common.white' }}>Israel</Box> Anane Domeh
         </Typography>
         
-        <Typography 
+        <Typography
           variant="h2"
           sx={{
             fontSize: { xs: '1.25rem', sm: '2rem' },

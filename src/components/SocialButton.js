@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from '@mui/material';
 
-const SocialButton = ({ platform, icon, url, color }) => {
+const SocialButton = ({ platform, icon, url }) => {
   return (
     <Button
-      variant="contained"
+      variant="outlined"
       startIcon={icon}
       href={url}
       sx={{
@@ -13,13 +13,14 @@ const SocialButton = ({ platform, icon, url, color }) => {
         borderRadius: '50px',
         fontWeight: 600,
         transition: 'all 0.3s ease',
-        transformOrigin: 'center',
-        backgroundColor: color,
-        color: 'white',
+        borderColor: 'secondary.main',
+        color: 'secondary.main',
         '&:hover': {
+          backgroundColor: 'secondary.main',
+          color: 'primary.main',
+          borderColor: 'secondary.main',
           transform: 'translateY(-2px)',
-          boxShadow: (theme) => `0 5px 15px ${theme.palette.primary.main}33`,
-          backgroundColor: color,
+          boxShadow: (theme) => `0 5px 15px ${theme.palette.secondary.main}33`,
         },
         '&:active': {
           transform: 'translateY(0)',
