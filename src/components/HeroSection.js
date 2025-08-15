@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Box, Container, Typography, Button, Stack } from '@mui/material';
-import { FaInstagram, FaTwitter, FaEnvelope, FaArrowDown } from 'react-icons/fa';
+import { Box, Container, Typography, Stack } from '@mui/material';
+import { FaArrowDown } from 'react-icons/fa';
+import SocialButton from './SocialButton';
+import { socialLinks } from '../app/data';
 import { keyframes } from '@mui/system';
 
 // Optimized animations using CSS transitions
@@ -91,39 +93,20 @@ const HeroSection = () => {
           Olympic Track & Field Athlete | Sprinter Specialist
         </Typography>
 
-        <Stack 
+        <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={3}
           justifyContent="center"
           sx={{ mb: 6 }}
         >
-          {['Instagram', 'Twitter', 'Contact'].map((platform, index) => (
-            <Button
-              key={platform}
-              variant="contained"
-              color={index === 2 ? 'secondary' : 'primary'}
-              startIcon={[<FaInstagram key="instagram" />, <FaTwitter key="twitter" />, <FaEnvelope key="envelope" />][index]}
-              href={index === 2 ? 'mailto:contact@example.com' : '#'}
-              sx={{
-                px: { xs: 3, sm: 4 },
-                py: 1.5,
-                borderRadius: '50px',
-                fontWeight: 600,
-                transition: 'all 0.3s ease',
-                transformOrigin: 'center',
-                '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: theme => `0 5px 15px ${theme.palette.primary.main}33`,
-                },
-                '&:active': {
-                  transform: 'translateY(0)',
-                },
-                width: 'auto',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {platform}
-            </Button>
+          {socialLinks.map((link) => (
+            <SocialButton
+              key={link.platform}
+              platform={link.platform}
+              icon={link.icon}
+              url={link.url}
+              color={link.color}
+            />
           ))}
         </Stack>
 
