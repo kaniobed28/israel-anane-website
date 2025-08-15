@@ -35,6 +35,10 @@ export const metadata = {
   },
 };
 
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from '../theme';
+
 // RootLayout component to apply the fonts and wrap the children components.
 export default function RootLayout({ children }) {
   return (
@@ -45,7 +49,10 @@ export default function RootLayout({ children }) {
         {/* Other meta tags and links for production */}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
